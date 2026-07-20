@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NOVA · Trải bài Tarot hiện đại</title>
+<title>Keviin Luu · Trải bài Tarot hiện đại</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -235,6 +235,21 @@
   .topic-card.active{ box-shadow: inset 0 1px 0 var(--glass-hi), 0 24px 60px -28px rgba(0,0,0,0.65), 0 0 0 2px var(--accent); }
   .topic-card.active .topic-icon{ background: var(--accent); color: var(--accent-ink); box-shadow: var(--shadow-in); }
 
+  .extra-topics{ margin-top: 22px; }
+  .extra-label{ font-family: var(--font-display); font-size:12px; font-weight:600; color: var(--mute); margin-bottom:12px; }
+  .chip-row{ display:flex; flex-wrap:wrap; gap:10px; }
+  .topic-chip{
+    display:flex; align-items:center; gap:8px;
+    padding: 11px 18px; border-radius: var(--pill);
+    background: var(--glass-bg-2); border:1px solid var(--glass-border);
+    font-family: var(--font-display); font-size:13px; font-weight:600;
+    cursor:pointer; transition: all .25s ease;
+  }
+  .topic-chip i{ color: var(--mute); font-size:15px; transition: color .25s ease; }
+  .topic-chip:hover{ border-color: var(--accent); transform: translateY(-2px); }
+  .topic-chip.active{ background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  .topic-chip.active i{ color: var(--accent-ink); }
+
   /* ---------- question panel ---------- */
   .qpanel-shell{ margin-top: 36px; padding: 40px; }
   .qpanel-empty{ text-align:center; color: var(--mute); font-family: var(--font-display); font-weight:600; font-size:16px; padding: 16px 0; }
@@ -386,7 +401,7 @@
   <nav>
     <div class="logo">
       <span class="logo-badge"><i class="ph-fill ph-sparkle"></i></span>
-      NOVA
+      Keviin Luu
     </div>
     <a href="#cta" class="nav-cta">Trải bài ngay</a>
   </nav>
@@ -408,10 +423,10 @@
   <!-- HERO -->
   <section class="hero">
     <div>
-      <div class="badge"><i class="ph-fill ph-sparkle"></i> Trải nghiệm Tarot hiện đại</div>
-      <h1>Câu trả lời của bạn,<br>chỉ cách <b>3 lá bài</b>.</h1>
-      <p>Chọn chủ đề, đặt câu hỏi và để 3 lá bài Tarot soi sáng những gì bạn đang tìm kiếm.</p>
-      <a href="#identity" class="btn btn-accent">Bắt đầu ngay <i class="ph ph-arrow-right"></i></a>
+      <div class="badge"><i class="ph-fill ph-sparkle"></i> Tarot cho thế hệ mới</div>
+      <h1>Ngừng đoán già đoán non.<br>Để <b>lá bài</b> lên tiếng.</h1>
+      <p>Chọn chủ đề, thả một câu hỏi, và để 3 lá Tarot bóc trần điều bạn đang thắc mắc.</p>
+      <a href="#identity" class="btn btn-accent">Chơi thôi!! <i class="ph ph-arrow-right"></i></a>
     </div>
     <div class="hero-stage">
       <div class="h-card glass">
@@ -451,8 +466,8 @@
   <!-- TOPICS -->
   <section id="topics" class="divider">
     <div class="section-head reveal-on-scroll">
-      <h2>Bạn đang tìm câu trả lời cho điều gì?</h2>
-      <p>Chọn một chủ đề gần nhất với điều đang khiến bạn bận tâm.</p>
+      <h2>Chuyện gì đang khiến bạn <span style="color:var(--accent)">xoắn não</span>?</h2>
+      <p>Chọn 1 chủ đề gần nhất, để lá bài giải mã giúp bạn.</p>
     </div>
 
     <div class="topics-grid reveal-on-scroll" id="topicsGrid">
@@ -491,6 +506,18 @@
         <h3>Sức khỏe &amp; Năng lượng</h3>
         <p>Cân bằng giữa cơ thể, tâm trí và nghỉ ngơi.</p>
       </button>
+    </div>
+
+    <div class="extra-topics reveal-on-scroll">
+      <div class="extra-label">Hoặc chọn nhanh</div>
+      <div class="chip-row" id="chipRow">
+        <button class="topic-chip" data-topic="friends"><i class="ph ph-users-three"></i><span>Bạn bè &amp; Xã giao</span></button>
+        <button class="topic-chip" data-topic="family"><i class="ph ph-house"></i><span>Gia đình</span></button>
+        <button class="topic-chip" data-topic="dreams"><i class="ph ph-cloud"></i><span>Giấc mơ &amp; Tiềm thức</span></button>
+        <button class="topic-chip" data-topic="spirit"><i class="ph ph-eye"></i><span>Tâm linh &amp; Nội tâm</span></button>
+        <button class="topic-chip" data-topic="decision"><i class="ph ph-signpost"></i><span>Quyết định lớn</span></button>
+        <button class="topic-chip" data-topic="luck"><i class="ph ph-clover"></i><span>May mắn &amp; Cơ hội</span></button>
+      </div>
     </div>
 
     <!-- QUESTIONS -->
@@ -562,6 +589,72 @@
         </div>
         <div class="custom-q"><label>Hoặc, viết câu hỏi của riêng bạn</label><textarea placeholder="Nhập câu hỏi của bạn ở đây..."></textarea></div>
       </div>
+
+      <div class="qpanel" data-panel="friends">
+        <div class="qpanel-head"><span class="icon-circle"><i class="ph ph-users-three"></i></span><h3>Câu hỏi về Bạn bè &amp; Xã giao</h3></div>
+        <div class="qlist">
+          <div class="qchip"><i class="ph ph-circle"></i><span>Người bạn đó có thực sự chân thành với tôi?</span></div>
+          <div class="qchip"><i class="ph ph-circle"></i><span>Tôi có nên chủ động làm hòa sau mâu thuẫn vừa qua?</span></div>
+          <div class="qchip"><i class="ph ph-circle"></i><span>Vòng bạn bè hiện tại có còn phù hợp với tôi?</span></div>
+          <div class="qchip"><i class="ph ph-circle"></i><span>Làm sao để tôi mở rộng những mối quan hệ chất lượng hơn?</span></div>
+        </div>
+        <div class="custom-q"><label>Hoặc, viết câu hỏi của riêng bạn</label><textarea placeholder="Nhập câu hỏi của bạn ở đây..."></textarea></div>
+      </div>
+
+      <div class="qpanel" data-panel="family">
+        <div class="qpanel-head"><span class="icon-circle"><i class="ph ph-house"></i></span><h3>Câu hỏi về Gia đình</h3></div>
+        <div class="qlist">
+          <div class="qchip"><i class="ph ph-circle"></i><span>Mối quan hệ giữa tôi và gia đình sẽ ra sao trong thời gian tới?</span></div>
+          <div class="qchip"><i class="ph ph-circle"></i><span>Tôi nên làm gì để giảm căng thẳng với người thân?</span></div>
+          <div class="qchip"><i class="ph ph-circle"></i><span>Có điều gì tôi cần nói ra với gia đình mà vẫn đang giữ trong lòng?</span></div>
+          <div class="qchip"><i class="ph ph-circle"></i><span>Tôi có nên dành nhiều thời gian hơn cho gia đình lúc này?</span></div>
+        </div>
+        <div class="custom-q"><label>Hoặc, viết câu hỏi của riêng bạn</label><textarea placeholder="Nhập câu hỏi của bạn ở đây..."></textarea></div>
+      </div>
+
+      <div class="qpanel" data-panel="dreams">
+        <div class="qpanel-head"><span class="icon-circle"><i class="ph ph-cloud"></i></span><h3>Câu hỏi về Giấc mơ &amp; Tiềm thức</h3></div>
+        <div class="qlist">
+          <div class="qchip"><i class="ph ph-circle"></i><span>Giấc mơ gần đây của tôi đang muốn nói điều gì?</span></div>
+          <div class="qchip"><i class="ph ph-circle"></i><span>Điều gì trong tiềm thức đang ảnh hưởng đến quyết định của tôi?</span></div>
+          <div class="qchip"><i class="ph ph-circle"></i><span>Tôi có đang lắng nghe đủ những tín hiệu bên trong mình?</span></div>
+          <div class="qchip"><i class="ph ph-circle"></i><span>Nỗi sợ nào tôi cần đối diện để ngủ ngon hơn?</span></div>
+        </div>
+        <div class="custom-q"><label>Hoặc, viết câu hỏi của riêng bạn</label><textarea placeholder="Nhập câu hỏi của bạn ở đây..."></textarea></div>
+      </div>
+
+      <div class="qpanel" data-panel="spirit">
+        <div class="qpanel-head"><span class="icon-circle"><i class="ph ph-eye"></i></span><h3>Câu hỏi về Tâm linh &amp; Nội tâm</h3></div>
+        <div class="qlist">
+          <div class="qchip"><i class="ph ph-circle"></i><span>Tôi cần làm gì để kết nối sâu hơn với chính mình?</span></div>
+          <div class="qchip"><i class="ph ph-circle"></i><span>Điều gì đang cản trở sự bình an nội tâm của tôi?</span></div>
+          <div class="qchip"><i class="ph ph-circle"></i><span>Tôi có đang sống đúng với giá trị của bản thân?</span></div>
+          <div class="qchip"><i class="ph ph-circle"></i><span>Bài học tâm linh nào tôi cần học trong giai đoạn này?</span></div>
+        </div>
+        <div class="custom-q"><label>Hoặc, viết câu hỏi của riêng bạn</label><textarea placeholder="Nhập câu hỏi của bạn ở đây..."></textarea></div>
+      </div>
+
+      <div class="qpanel" data-panel="decision">
+        <div class="qpanel-head"><span class="icon-circle"><i class="ph ph-signpost"></i></span><h3>Câu hỏi về Quyết định lớn</h3></div>
+        <div class="qlist">
+          <div class="qchip"><i class="ph ph-circle"></i><span>Tôi có nên đưa ra quyết định lớn này ngay bây giờ?</span></div>
+          <div class="qchip"><i class="ph ph-circle"></i><span>Lựa chọn nào giữa hai phương án sẽ phù hợp với tôi hơn?</span></div>
+          <div class="qchip"><i class="ph ph-circle"></i><span>Điều gì tôi cần cân nhắc trước khi quyết định?</span></div>
+          <div class="qchip"><i class="ph ph-circle"></i><span>Nếu chọn con đường này, điều gì đang chờ tôi phía trước?</span></div>
+        </div>
+        <div class="custom-q"><label>Hoặc, viết câu hỏi của riêng bạn</label><textarea placeholder="Nhập câu hỏi của bạn ở đây..."></textarea></div>
+      </div>
+
+      <div class="qpanel" data-panel="luck">
+        <div class="qpanel-head"><span class="icon-circle"><i class="ph ph-clover"></i></span><h3>Câu hỏi về May mắn &amp; Cơ hội</h3></div>
+        <div class="qlist">
+          <div class="qchip"><i class="ph ph-circle"></i><span>Vận may của tôi trong thời gian tới sẽ như thế nào?</span></div>
+          <div class="qchip"><i class="ph ph-circle"></i><span>Cơ hội nào tôi không nên bỏ lỡ lúc này?</span></div>
+          <div class="qchip"><i class="ph ph-circle"></i><span>Tôi có nên thử sức với điều mới mẻ, mạo hiểm hơn?</span></div>
+          <div class="qchip"><i class="ph ph-circle"></i><span>Điều gì đang mở ra cánh cửa may mắn cho tôi?</span></div>
+        </div>
+        <div class="custom-q"><label>Hoặc, viết câu hỏi của riêng bạn</label><textarea placeholder="Nhập câu hỏi của bạn ở đây..."></textarea></div>
+      </div>
     </div>
   </section>
 
@@ -605,13 +698,13 @@
 </main>
 
 <footer class="wrap">
-  <div class="logo"><i class="ph-fill ph-sparkle" style="color:var(--accent)"></i> NOVA</div>
+  <div class="logo"><i class="ph-fill ph-sparkle" style="color:var(--accent)"></i> Keviin Luu</div>
   <div class="flinks">
     <a href="#topics">Chủ đề</a>
     <a href="#questions">Câu hỏi</a>
     <a href="#identity">Bắt đầu</a>
   </div>
-  <div>© 2026 NOVA. Mọi câu trả lời bắt đầu từ một câu hỏi.</div>
+  <div>© 2026 Keviin Luu. Mọi câu trả lời bắt đầu từ một câu hỏi.</div>
 </footer>
 
 <script>
@@ -622,7 +715,7 @@
   document.querySelectorAll('.reveal-on-scroll').forEach(el=>io.observe(el));
 
   // topic selection
-  const topicCards = document.querySelectorAll('.topic-card');
+  const topicCards = document.querySelectorAll('.topic-card, .topic-chip');
   const qEmpty = document.getElementById('qEmpty');
   const qpanels = document.querySelectorAll('.qpanel');
   let selectedTopic = null;
@@ -706,119 +799,221 @@
     });
   });
 
-  // ---------- tarot deck ----------
-  const deck = [
+  // ---------- tarot deck (78 lá: 22 Ẩn Chính + 56 Ẩn Phụ) ----------
+  const majorArcana = [
     {num:'0', name:'Kẻ Khờ', en:'The Fool', icon:'footprints',
-     meaning:'Khởi đầu mới, một bước nhảy vào điều chưa biết với trái tim rộng mở và niềm tin ngây thơ.',
-     message:'Bạn được mời bước đi mà không cần biết trước mọi câu trả lời, sự ngây thơ chính là dũng khí.',
-     challenge:'Đừng để sự hào hứng khiến bạn bỏ qua những rủi ro thực sự đang ở phía trước.',
-     benefit:'Một cánh cửa hoàn toàn mới đang mở ra, mang lại tự do mà bạn đã lâu không cho phép mình có.'},
+     meaning:'Khởi đầu mới, một bước nhảy vào điều chưa biết với trái tim rộng mở và niềm tin ngây thơ. Đây là lá bài của tiềm năng thuần khiết, khi mọi con đường vẫn còn để ngỏ và chưa bị giới hạn bởi kinh nghiệm cũ.',
+     message:'Bạn được mời bước đi mà không cần biết trước mọi câu trả lời, sự ngây thơ chính là dũng khí. Vũ trụ đang khuyến khích bạn tin vào trực giác của mình nhiều hơn là những nỗi lo đã được lập trình sẵn.',
+     challenge:'Đừng để sự hào hứng khiến bạn bỏ qua những rủi ro thực sự đang ở phía trước. Sự tự do quá đà, thiếu chuẩn bị, có thể khiến bạn vấp ngã ngay từ những bước đầu tiên.',
+     benefit:'Một cánh cửa hoàn toàn mới đang mở ra, mang lại tự do mà bạn đã lâu không cho phép mình có. Nếu dám bước đi, bạn sẽ khám phá ra những khả năng mà bản thân chưa từng nghĩ tới.'},
     {num:'I', name:'Pháp Sư', en:'The Magician', icon:'magic-wand',
-     meaning:'Bạn đã có đủ mọi công cụ cần thiết, điều còn thiếu chỉ là hành động.',
-     message:'Vũ trụ đang nhắc bạn rằng ý chí của bạn đủ mạnh để biến ý tưởng thành hiện thực.',
-     challenge:'Cẩn thận với việc nói nhiều hơn làm, hoặc dùng khả năng của mình để thao túng thay vì kiến tạo.',
-     benefit:'Khả năng biến điều bạn hình dung thành sự thật, ngay trong giai đoạn này.'},
+     meaning:'Bạn đã có đủ mọi công cụ cần thiết, điều còn thiếu chỉ là hành động. Lá bài này nói về khả năng kết nối ý chí, kỹ năng và nguồn lực để tạo ra kết quả cụ thể.',
+     message:'Vũ trụ đang nhắc bạn rằng ý chí của bạn đủ mạnh để biến ý tưởng thành hiện thực. Đây là thời điểm để bạn chủ động thay vì chờ đợi điều kiện hoàn hảo mới bắt đầu.',
+     challenge:'Cẩn thận với việc nói nhiều hơn làm, hoặc dùng khả năng của mình để thao túng thay vì kiến tạo. Sức mạnh không đi kèm sự chân thành có thể phản tác dụng về lâu dài.',
+     benefit:'Khả năng biến điều bạn hình dung thành sự thật, ngay trong giai đoạn này. Mọi nguồn lực bạn cần đều đã ở trong tầm tay, chỉ chờ bạn sử dụng đúng cách.'},
     {num:'II', name:'Nữ Tư Tế', en:'The High Priestess', icon:'moon',
-     meaning:'Câu trả lời không nằm ở logic, mà ở trực giác và những điều bạn đã âm thầm cảm nhận.',
-     message:'Hãy tin vào tiếng nói bên trong, nó biết nhiều hơn những gì bạn cho phép mình thừa nhận.',
-     challenge:'Đừng để nỗi sợ khiến bạn giấu đi sự thật mà bạn đã biết từ lâu.',
-     benefit:'Sự sáng suốt sâu sắc đến từ việc lắng nghe chính mình trước khi hỏi người khác.'},
+     meaning:'Câu trả lời không nằm ở logic, mà ở trực giác và những điều bạn đã âm thầm cảm nhận. Đây là lá bài của tri thức nội tâm, những gì chưa được nói ra nhưng đã hiện diện rõ ràng.',
+     message:'Hãy tin vào tiếng nói bên trong, nó biết nhiều hơn những gì bạn cho phép mình thừa nhận. Đôi khi câu trả lời đã có sẵn, chỉ là bạn chưa đủ tĩnh lặng để nghe thấy.',
+     challenge:'Đừng để nỗi sợ khiến bạn giấu đi sự thật mà bạn đã biết từ lâu. Việc né tránh trực giác của chính mình chỉ khiến sự mơ hồ kéo dài thêm.',
+     benefit:'Sự sáng suốt sâu sắc đến từ việc lắng nghe chính mình trước khi hỏi người khác. Bạn sẽ tìm thấy câu trả lời rõ ràng hơn nếu cho bản thân không gian yên tĩnh để suy ngẫm.'},
     {num:'III', name:'Nữ Hoàng', en:'The Empress', icon:'flower',
-     meaning:'Sự sinh sôi, nuôi dưỡng và một giai đoạn trù phú đang hình thành quanh bạn.',
-     message:'Bạn đang được mời chăm sóc bản thân và những gì mình đang vun đắp, thay vì vội vàng thúc ép.',
-     challenge:'Đừng nhầm lẫn giữa cho đi và đánh mất chính mình trong việc chăm lo cho người khác.',
-     benefit:'Một mối quan hệ, dự án, hay phiên bản mới của bạn đang lớn lên một cách tự nhiên.'},
+     meaning:'Sự sinh sôi, nuôi dưỡng và một giai đoạn trù phú đang hình thành quanh bạn. Đây là lá bài của sự sáng tạo và khả năng chăm sóc, cả cho bản thân lẫn những gì bạn đang xây dựng.',
+     message:'Bạn đang được mời chăm sóc bản thân và những gì mình đang vun đắp, thay vì vội vàng thúc ép. Sự phát triển bền vững cần thời gian và sự dịu dàng, không phải áp lực.',
+     challenge:'Đừng nhầm lẫn giữa cho đi và đánh mất chính mình trong việc chăm lo cho người khác. Sự nuôi dưỡng chỉ thực sự lành mạnh khi bạn cũng dành điều đó cho chính mình.',
+     benefit:'Một mối quan hệ, dự án, hay phiên bản mới của bạn đang lớn lên một cách tự nhiên. Sự trù phú này sẽ đơm hoa kết trái nếu bạn kiên nhẫn đồng hành cùng nó.'},
     {num:'IV', name:'Hoàng Đế', en:'The Emperor', icon:'crown',
-     meaning:'Cấu trúc, kỷ luật và quyền kiểm soát vững chắc mà bạn cần thiết lập lúc này.',
-     message:'Đã đến lúc bạn đặt ra ranh giới rõ ràng và đứng vững trên quyết định của mình.',
-     challenge:'Sự cứng nhắc có thể khiến bạn bỏ lỡ những góc nhìn khác, quyền lực cần đi cùng sự lắng nghe.',
-     benefit:'Sự ổn định lâu dài, khi bạn dám làm người chịu trách nhiệm cho hướng đi của chính mình.'},
+     meaning:'Cấu trúc, kỷ luật và quyền kiểm soát vững chắc mà bạn cần thiết lập lúc này. Lá bài này đại diện cho khả năng tổ chức và xây dựng một nền tảng lâu dài, đáng tin cậy.',
+     message:'Đã đến lúc bạn đặt ra ranh giới rõ ràng và đứng vững trên quyết định của mình. Sự ổn định không tự đến, nó được tạo ra bởi những lựa chọn có chủ đích.',
+     challenge:'Sự cứng nhắc có thể khiến bạn bỏ lỡ những góc nhìn khác, quyền lực cần đi cùng sự lắng nghe. Kiểm soát quá mức đôi khi lại khiến người khác rời xa bạn hơn là gắn bó.',
+     benefit:'Sự ổn định lâu dài, khi bạn dám làm người chịu trách nhiệm cho hướng đi của chính mình. Cấu trúc bạn xây dựng hôm nay sẽ là nơi nương tựa vững chắc cho tương lai.'},
     {num:'V', name:'Giáo Hoàng', en:'The Hierophant', icon:'book-open',
-     meaning:'Truyền thống, những giá trị đã được kiểm chứng và một người thầy hay hệ thống đáng tin cậy.',
-     message:'Có những câu trả lời không cần bạn phải tự mình khám phá lại từ đầu, hãy tìm người đi trước.',
-     challenge:'Đừng đi theo một con đường chỉ vì đó là điều nên làm, nếu nó không còn đúng với bạn.',
-     benefit:'Một nền tảng vững chắc để dựa vào, khi bạn cần cảm giác được dẫn dắt.'},
+     meaning:'Truyền thống, những giá trị đã được kiểm chứng và một người thầy hay hệ thống đáng tin cậy. Lá bài này nói về việc học hỏi từ những gì đã được chứng minh, thay vì tự mình mò mẫm.',
+     message:'Có những câu trả lời không cần bạn phải tự mình khám phá lại từ đầu, hãy tìm người đi trước. Một người cố vấn, một cộng đồng hay một hệ giá trị quen thuộc có thể soi đường cho bạn lúc này.',
+     challenge:'Đừng đi theo một con đường chỉ vì đó là điều nên làm, nếu nó không còn đúng với bạn. Sự tuân thủ mù quáng có thể khiến bạn đánh mất tiếng nói riêng của mình.',
+     benefit:'Một nền tảng vững chắc để dựa vào, khi bạn cần cảm giác được dẫn dắt. Sự khôn ngoan của những người đi trước có thể giúp bạn rút ngắn hành trình của chính mình.'},
     {num:'VI', name:'Tình Nhân', en:'The Lovers', icon:'heart',
-     meaning:'Một lựa chọn quan trọng liên quan đến trái tim, giá trị sống hoặc sự hòa hợp giữa hai phía.',
-     message:'Bạn đang được mời chọn điều thật sự phù hợp với mình, không phải điều dễ dàng nhất.',
-     challenge:'Sự do dự kéo dài có thể khiến bạn đánh mất cả hai lựa chọn cùng lúc.',
-     benefit:'Một sự kết nối chân thật, khi bạn chọn bằng cả lý trí lẫn trái tim.'},
+     meaning:'Một lựa chọn quan trọng liên quan đến trái tim, giá trị sống hoặc sự hòa hợp giữa hai phía. Đây là lá bài của những kết nối sâu sắc, nơi cả hai bên đều được nhìn nhận trọn vẹn.',
+     message:'Bạn đang được mời chọn điều thật sự phù hợp với mình, không phải điều dễ dàng nhất. Sự chân thành với chính giá trị của bản thân sẽ dẫn bạn đến lựa chọn đúng đắn.',
+     challenge:'Sự do dự kéo dài có thể khiến bạn đánh mất cả hai lựa chọn cùng lúc. Đôi khi né tránh quyết định cũng là một quyết định, chỉ là nó không nằm trong tay bạn nữa.',
+     benefit:'Một sự kết nối chân thật, khi bạn chọn bằng cả lý trí lẫn trái tim. Mối quan hệ được xây dựng trên sự thấu hiểu lẫn nhau sẽ bền vững hơn bất kỳ điều gì khác.'},
     {num:'VII', name:'Cỗ Xe', en:'The Chariot', icon:'flag-checkered',
-     meaning:'Ý chí mạnh mẽ giúp bạn tiến về phía trước, ngay cả khi hai lực đối lập đang kéo bạn hai hướng.',
-     message:'Bạn có nhiều quyền kiểm soát tình huống hơn bạn nghĩ, chỉ cần giữ vững tay lái.',
-     challenge:'Đừng để tốc độ khiến bạn quên mất mình đang thực sự hướng tới đâu.',
-     benefit:'Một chiến thắng đến từ sự quyết tâm, khi bạn không để hoàn cảnh dẫn dắt mình.'},
+     meaning:'Ý chí mạnh mẽ giúp bạn tiến về phía trước, ngay cả khi hai lực đối lập đang kéo bạn hai hướng. Đây là lá bài của sự quyết tâm, khi bạn học cách làm chủ những mâu thuẫn nội tại.',
+     message:'Bạn có nhiều quyền kiểm soát tình huống hơn bạn nghĩ, chỉ cần giữ vững tay lái. Sự tập trung và kỷ luật sẽ giúp bạn vượt qua giai đoạn giằng co này.',
+     challenge:'Đừng để tốc độ khiến bạn quên mất mình đang thực sự hướng tới đâu. Chiến thắng chỉ có ý nghĩa khi bạn biết rõ đích đến của mình.',
+     benefit:'Một chiến thắng đến từ sự quyết tâm, khi bạn không để hoàn cảnh dẫn dắt mình. Bạn sẽ tiến xa hơn nếu giữ được sự bình tĩnh giữa những áp lực trái chiều.'},
     {num:'VIII', name:'Sức Mạnh', en:'Strength', icon:'shield',
-     meaning:'Sức mạnh thật sự không đến từ ép buộc, mà từ sự dịu dàng và kiên nhẫn bền bỉ.',
-     message:'Bạn không cần phải chiến đấu với mọi thứ, đôi khi chỉ cần ở lại, bình tĩnh và vững vàng.',
-     challenge:'Đừng nhầm lẫn sự nhẫn nhịn với việc để bản thân bị tổn thương mãi.',
-     benefit:'Sự tự tin đến từ nội tâm, giúp bạn vượt qua nỗi sợ mà không cần phải gồng mình.'},
+     meaning:'Sức mạnh thật sự không đến từ ép buộc, mà từ sự dịu dàng và kiên nhẫn bền bỉ. Lá bài này nói về khả năng làm chủ cảm xúc mãnh liệt bằng sự bình tĩnh, không phải đàn áp.',
+     message:'Bạn không cần phải chiến đấu với mọi thứ, đôi khi chỉ cần ở lại, bình tĩnh và vững vàng. Sức mạnh nội tâm được thể hiện rõ nhất qua sự kiên định thầm lặng.',
+     challenge:'Đừng nhầm lẫn sự nhẫn nhịn với việc để bản thân bị tổn thương mãi. Sự dịu dàng không có nghĩa là bạn phải chịu đựng những điều không xứng đáng.',
+     benefit:'Sự tự tin đến từ nội tâm, giúp bạn vượt qua nỗi sợ mà không cần phải gồng mình. Bạn sẽ nhận ra mình mạnh mẽ hơn nhiều so với những gì bản thân từng nghĩ.'},
     {num:'IX', name:'Ẩn Sĩ', en:'The Hermit', icon:'mountains',
-     meaning:'Một giai đoạn lùi lại, tìm kiếm câu trả lời trong sự tĩnh lặng thay vì ồn ào bên ngoài.',
-     message:'Câu trả lời bạn cần đang chờ bạn ở một nơi yên tĩnh hơn, hãy cho mình thời gian đó.',
-     challenge:'Đừng để sự cô lập kéo dài quá lâu đến mức bạn quên mất cách kết nối lại.',
-     benefit:'Sự thấu hiểu sâu sắc về bản thân, điều mà không ai khác có thể trao cho bạn.'},
+     meaning:'Một giai đoạn lùi lại, tìm kiếm câu trả lời trong sự tĩnh lặng thay vì ồn ào bên ngoài. Đây là lá bài của hành trình nội tâm, khi ánh sáng bạn cần đến từ chính bên trong.',
+     message:'Câu trả lời bạn cần đang chờ bạn ở một nơi yên tĩnh hơn, hãy cho mình thời gian đó. Đôi khi rút lui không phải là bỏ cuộc, mà là cách để nhìn rõ hơn.',
+     challenge:'Đừng để sự cô lập kéo dài quá lâu đến mức bạn quên mất cách kết nối lại. Sự tĩnh lặng chỉ hữu ích khi bạn biết lúc nào cần quay trở lại với thế giới.',
+     benefit:'Sự thấu hiểu sâu sắc về bản thân, điều mà không ai khác có thể trao cho bạn. Hành trình một mình này sẽ mang lại sự sáng suốt bạn cần cho chặng đường tiếp theo.'},
     {num:'X', name:'Bánh Xe Số Mệnh', en:'Wheel of Fortune', icon:'arrows-clockwise',
-     meaning:'Một bước ngoặt đang đến, chu kỳ cũ khép lại để nhường chỗ cho một vòng quay mới.',
-     message:'Những gì đang thay đổi không nằm trong tầm kiểm soát của bạn, nhưng cách bạn phản ứng thì có.',
-     challenge:'Đừng bám víu vào những gì đang trôi qua, vòng quay không chờ đợi ai.',
-     benefit:'Một cơ hội bất ngờ, đến đúng lúc bạn cần nó nhất.'},
+     meaning:'Một bước ngoặt đang đến, chu kỳ cũ khép lại để nhường chỗ cho một vòng quay mới. Lá bài này nói về những yếu tố nằm ngoài tầm kiểm soát, đang âm thầm định hình lại cuộc sống của bạn.',
+     message:'Những gì đang thay đổi không nằm trong tầm kiểm soát của bạn, nhưng cách bạn phản ứng thì có. Hãy đón nhận sự thay đổi như một phần tự nhiên của hành trình, thay vì chống lại nó.',
+     challenge:'Đừng bám víu vào những gì đang trôi qua, vòng quay không chờ đợi ai. Sự kháng cự với thay đổi chỉ khiến quá trình chuyển tiếp trở nên khó khăn hơn.',
+     benefit:'Một cơ hội bất ngờ, đến đúng lúc bạn cần nó nhất. Vận may đang xoay chuyển theo hướng có lợi, miễn là bạn sẵn sàng đón nhận nó.'},
     {num:'XI', name:'Công Lý', en:'Justice', icon:'scales',
-     meaning:'Sự thật, trách nhiệm và hậu quả công bằng cho những lựa chọn đã qua.',
-     message:'Đã đến lúc nhìn thẳng vào sự thật, ngay cả khi nó không phải điều bạn muốn nghe.',
-     challenge:'Đừng để cảm xúc cá nhân làm lu mờ điều bạn biết rõ là đúng đắn.',
-     benefit:'Một quyết định công bằng mang lại sự nhẹ nhõm lâu dài, dù ban đầu có thể khó khăn.'},
+     meaning:'Sự thật, trách nhiệm và hậu quả công bằng cho những lựa chọn đã qua. Đây là lá bài của sự cân bằng, khi mọi hành động đều đang chờ được nhìn nhận đúng bản chất của nó.',
+     message:'Đã đến lúc nhìn thẳng vào sự thật, ngay cả khi nó không phải điều bạn muốn nghe. Sự trung thực với chính mình sẽ mang lại kết quả công bằng hơn bất kỳ sự né tránh nào.',
+     challenge:'Đừng để cảm xúc cá nhân làm lu mờ điều bạn biết rõ là đúng đắn. Sự thiên vị, dù là với chính mình, cũng có thể khiến bạn đưa ra quyết định sai lầm.',
+     benefit:'Một quyết định công bằng mang lại sự nhẹ nhõm lâu dài, dù ban đầu có thể khó khăn. Sự thật, dù không dễ nghe, luôn là nền tảng vững chắc nhất để bước tiếp.'},
     {num:'XII', name:'Người Treo Ngược', en:'The Hanged Man', icon:'pause',
-     meaning:'Tạm dừng, buông bỏ quyền kiểm soát, để nhìn tình huống từ một góc hoàn toàn khác.',
-     message:'Đôi khi không làm gì cả lại chính là hành động đúng đắn nhất lúc này.',
-     challenge:'Sự trì hoãn có thể khiến bạn cảm thấy bế tắc nếu không đi kèm với sự chấp nhận.',
-     benefit:'Một góc nhìn mới mẻ, chỉ đến được khi bạn ngừng cố gắng kiểm soát mọi thứ.'},
+     meaning:'Tạm dừng, buông bỏ quyền kiểm soát, để nhìn tình huống từ một góc hoàn toàn khác. Lá bài này nói về sự chấp nhận, khi bạn ngừng chống cự lại những gì không thể thay đổi.',
+     message:'Đôi khi không làm gì cả lại chính là hành động đúng đắn nhất lúc này. Sự chờ đợi có chủ đích khác với sự trì hoãn, và đây là lúc bạn cần phân biệt rõ hai điều đó.',
+     challenge:'Sự trì hoãn có thể khiến bạn cảm thấy bế tắc nếu không đi kèm với sự chấp nhận. Việc mắc kẹt trong tư thế lơ lửng quá lâu sẽ khiến năng lượng của bạn cạn kiệt.',
+     benefit:'Một góc nhìn mới mẻ, chỉ đến được khi bạn ngừng cố gắng kiểm soát mọi thứ. Sự buông bỏ đúng lúc sẽ mở ra những khả năng mà bạn chưa từng nhìn thấy trước đó.'},
     {num:'XIII', name:'Tử Thần', en:'Death', icon:'flower-lotus',
-     meaning:'Một sự kết thúc cần thiết, mở đường cho sự chuyển hóa và khởi đầu khác.',
-     message:'Điều đang khép lại không phải là mất mát, mà là không gian để điều mới được sinh ra.',
-     challenge:'Sự sợ hãi thay đổi có thể khiến bạn cố giữ lấy những gì đã không còn phù hợp.',
-     benefit:'Một phiên bản mới của chính bạn, mạnh mẽ hơn, sau khi buông bỏ điều cũ.'},
+     meaning:'Một sự kết thúc cần thiết, mở đường cho sự chuyển hóa và khởi đầu khác. Đây không phải lá bài của cái chết theo nghĩa đen, mà là biểu tượng của sự thay đổi sâu sắc và tất yếu.',
+     message:'Điều đang khép lại không phải là mất mát, mà là không gian để điều mới được sinh ra. Hãy để những gì đã hoàn thành vai trò của nó được ra đi một cách nhẹ nhàng.',
+     challenge:'Sự sợ hãi thay đổi có thể khiến bạn cố giữ lấy những gì đã không còn phù hợp. Bám víu vào quá khứ chỉ khiến quá trình chuyển hóa trở nên đau đớn hơn cần thiết.',
+     benefit:'Một phiên bản mới của chính bạn, mạnh mẽ hơn, sau khi buông bỏ điều cũ. Sự tái sinh này sẽ mang lại sức sống mà bạn đã không còn cảm nhận được trong giai đoạn trước.'},
     {num:'XIV', name:'Tiết Chế', en:'Temperance', icon:'drop',
-     meaning:'Sự cân bằng, pha trộn hài hòa giữa hai thái cực để tạo nên điều mới mẻ và ổn định.',
-     message:'Bạn không cần chọn một trong hai, hãy tìm cách để cả hai cùng tồn tại hài hòa.',
-     challenge:'Sự vội vàng sẽ phá vỡ thế cân bằng mà bạn đang cố gắng xây dựng.',
-     benefit:'Một sự chữa lành nhẹ nhàng, đến từ việc kiên nhẫn điều chỉnh từng chút một.'},
+     meaning:'Sự cân bằng, pha trộn hài hòa giữa hai thái cực để tạo nên điều mới mẻ và ổn định. Lá bài này nói về nghệ thuật điều hòa, khi những mặt đối lập trong bạn học cách cùng tồn tại.',
+     message:'Bạn không cần chọn một trong hai, hãy tìm cách để cả hai cùng tồn tại hài hòa. Sự dung hòa từ từ, có chủ đích, sẽ mang lại kết quả bền vững hơn sự lựa chọn dứt khoát.',
+     challenge:'Sự vội vàng sẽ phá vỡ thế cân bằng mà bạn đang cố gắng xây dựng. Kiên nhẫn là điều kiện bắt buộc để sự pha trộn này thực sự có hiệu quả.',
+     benefit:'Một sự chữa lành nhẹ nhàng, đến từ việc kiên nhẫn điều chỉnh từng chút một. Bạn sẽ tìm thấy một trạng thái cân bằng mới, ổn định hơn nhiều so với trước đây.'},
     {num:'XV', name:'Ác Quỷ', en:'The Devil', icon:'link',
-     meaning:'Sự ràng buộc, cám dỗ hoặc một thói quen đang âm thầm kiểm soát bạn.',
-     message:'Sợi dây đang trói bạn lỏng hơn bạn nghĩ, bạn có nhiều quyền lựa chọn hơn là cảm giác bây giờ.',
-     challenge:'Đừng để nỗi sợ hoặc sự tiện lợi giữ bạn ở lại nơi bạn biết rõ là không tốt cho mình.',
-     benefit:'Sự tự do đến ngay khi bạn dám thừa nhận điều gì đang thực sự kiểm soát mình.'},
+     meaning:'Sự ràng buộc, cám dỗ hoặc một thói quen đang âm thầm kiểm soát bạn. Lá bài này phơi bày những gì bạn đã để cho quyền lực chi phối mình, dù là từ bên ngoài hay chính nội tâm.',
+     message:'Sợi dây đang trói bạn lỏng hơn bạn nghĩ, bạn có nhiều quyền lựa chọn hơn là cảm giác bây giờ. Nhận ra sự ràng buộc là bước đầu tiên để thoát khỏi nó.',
+     challenge:'Đừng để nỗi sợ hoặc sự tiện lợi giữ bạn ở lại nơi bạn biết rõ là không tốt cho mình. Sự thoải mái giả tạo đôi khi nguy hiểm hơn cả sự khó chịu của thay đổi.',
+     benefit:'Sự tự do đến ngay khi bạn dám thừa nhận điều gì đang thực sự kiểm soát mình. Một khi nhìn rõ sợi dây ràng buộc, bạn sẽ thấy việc tháo gỡ nó dễ dàng hơn bạn tưởng.'},
     {num:'XVI', name:'Tòa Tháp', en:'The Tower', icon:'lightning',
-     meaning:'Một sự sụp đổ đột ngột, phá vỡ những gì được xây trên nền móng không vững chắc.',
-     message:'Điều đang sụp đổ chưa bao giờ thực sự an toàn, sự thật đang giải phóng bạn, không phải trừng phạt bạn.',
-     challenge:'Cú sốc ban đầu có thể khiến bạn muốn dựng lại y hệt những gì vừa đổ vỡ.',
-     benefit:'Một nền móng mới, chân thật hơn, được xây dựng sau khi lớp vỏ cũ không còn.'},
+     meaning:'Một sự sụp đổ đột ngột, phá vỡ những gì được xây trên nền móng không vững chắc. Lá bài này báo hiệu một cú sốc cần thiết, dù gây xáo trộn nhưng mang tính giải phóng.',
+     message:'Điều đang sụp đổ chưa bao giờ thực sự an toàn, sự thật đang giải phóng bạn, không phải trừng phạt bạn. Những gì vỡ ra hôm nay là để bạn xây lại điều tốt hơn.',
+     challenge:'Cú sốc ban đầu có thể khiến bạn muốn dựng lại y hệt những gì vừa đổ vỡ. Sự hoảng loạn không phải là lý do để lặp lại sai lầm cũ.',
+     benefit:'Một nền móng mới, chân thật hơn, được xây dựng sau khi lớp vỏ cũ không còn. Điều tưởng như tồi tệ này thực chất đang mở đường cho một sự khởi đầu vững chắc hơn.'},
     {num:'XVII', name:'Ngôi Sao', en:'The Star', icon:'sparkle',
-     meaning:'Hy vọng, sự chữa lành và niềm tin trở lại sau một giai đoạn khó khăn.',
-     message:'Bạn đã đi qua phần khó nhất, hãy cho phép mình tin tưởng vào điều tốt đẹp phía trước.',
-     challenge:'Đừng để những tổn thương cũ khiến bạn nghi ngờ ánh sáng đang thực sự xuất hiện.',
-     benefit:'Một cảm giác bình yên và cảm hứng mới, tiếp thêm sức mạnh cho hành trình sắp tới.'},
+     meaning:'Hy vọng, sự chữa lành và niềm tin trở lại sau một giai đoạn khó khăn. Đây là lá bài của ánh sáng dẫn đường, xuất hiện đúng lúc bạn cần được nhắc rằng mọi thứ sẽ ổn.',
+     message:'Bạn đã đi qua phần khó nhất, hãy cho phép mình tin tưởng vào điều tốt đẹp phía trước. Đây là lúc để nghỉ ngơi và để bản thân được chữa lành một cách tự nhiên.',
+     challenge:'Đừng để những tổn thương cũ khiến bạn nghi ngờ ánh sáng đang thực sự xuất hiện. Sự hoài nghi kéo dài có thể khiến bạn bỏ lỡ những điều tốt đẹp đang đến gần.',
+     benefit:'Một cảm giác bình yên và cảm hứng mới, tiếp thêm sức mạnh cho hành trình sắp tới. Niềm tin bạn đang xây dựng lại sẽ là nền tảng cho những điều tốt đẹp hơn.'},
     {num:'XVIII', name:'Mặt Trăng', en:'The Moon', icon:'moon-stars',
-     meaning:'Những điều chưa rõ ràng, cảm xúc mơ hồ và nỗi sợ đến từ những gì chưa được nhìn thấy hết.',
-     message:'Không phải mọi thứ cần được hiểu ngay lập tức, hãy để trực giác dẫn đường qua vùng tối này.',
-     challenge:'Đừng để trí tưởng tượng biến nỗi lo thành những điều còn lớn hơn thực tế.',
-     benefit:'Sự thấu cảm sâu sắc hơn với chính mình, khi bạn học cách ở yên trong sự không chắc chắn.'},
+     meaning:'Những điều chưa rõ ràng, cảm xúc mơ hồ và nỗi sợ đến từ những gì chưa được nhìn thấy hết. Lá bài này nói về vùng tối trong tâm trí, nơi trực giác quan trọng hơn logic.',
+     message:'Không phải mọi thứ cần được hiểu ngay lập tức, hãy để trực giác dẫn đường qua vùng tối này. Sự mơ hồ hiện tại là một phần tự nhiên của quá trình, không phải dấu hiệu bạn đang lạc lối.',
+     challenge:'Đừng để trí tưởng tượng biến nỗi lo thành những điều còn lớn hơn thực tế. Nỗi sợ vô hình thường đáng sợ hơn nhiều so với sự thật khi được nhìn rõ.',
+     benefit:'Sự thấu cảm sâu sắc hơn với chính mình, khi bạn học cách ở yên trong sự không chắc chắn. Vùng mơ hồ này, nếu được đi qua nhẹ nhàng, sẽ dẫn bạn đến sự rõ ràng.'},
     {num:'XIX', name:'Mặt Trời', en:'The Sun', icon:'sun',
-     meaning:'Niềm vui, sự rõ ràng và thành công đến một cách tự nhiên và ấm áp.',
-     message:'Đây là giai đoạn để bạn tận hưởng thành quả và để bản thân được nhìn thấy trọn vẹn.',
-     challenge:'Đừng để sự lạc quan khiến bạn bỏ qua những chi tiết vẫn cần được chăm chút.',
-     benefit:'Nguồn năng lượng dồi dào, giúp mọi nỗ lực của bạn được đền đáp xứng đáng.'},
+     meaning:'Niềm vui, sự rõ ràng và thành công đến một cách tự nhiên và ấm áp. Đây là một trong những lá bài tích cực nhất, báo hiệu sự sống động và nguồn năng lượng dồi dào.',
+     message:'Đây là giai đoạn để bạn tận hưởng thành quả và để bản thân được nhìn thấy trọn vẹn. Hãy cho phép niềm vui hiện tại tồn tại mà không cần lý do phức tạp.',
+     challenge:'Đừng để sự lạc quan khiến bạn bỏ qua những chi tiết vẫn cần được chăm chút. Ngay cả trong giai đoạn thuận lợi, sự cẩn trọng vừa đủ vẫn cần thiết.',
+     benefit:'Nguồn năng lượng dồi dào, giúp mọi nỗ lực của bạn được đền đáp xứng đáng. Đây là thời điểm thuận lợi để bắt đầu điều mới hoặc công khai điều bạn đã ấp ủ.'},
     {num:'XX', name:'Phán Xét', en:'Judgement', icon:'bell',
-     meaning:'Một lời gọi thức tỉnh, nhìn lại hành trình đã qua để bước vào một chương mới với sự thấu hiểu.',
-     message:'Bạn đang được mời tha thứ cho chính mình về những gì đã qua, và bước tiếp với sự sáng suốt hơn.',
-     challenge:'Đừng để sự tự trách trở thành lý do khiến bạn mãi ở lại quá khứ.',
-     benefit:'Một sự giải thoát thật sự, khi bạn chấp nhận toàn bộ hành trình của mình, cả sáng lẫn tối.'},
+     meaning:'Một lời gọi thức tỉnh, nhìn lại hành trình đã qua để bước vào một chương mới với sự thấu hiểu. Lá bài này nói về sự chuyển mình, khi bạn nhìn nhận lại chính mình một cách trung thực.',
+     message:'Bạn đang được mời tha thứ cho chính mình về những gì đã qua, và bước tiếp với sự sáng suốt hơn. Đây là cơ hội để bạn giải phóng bản thân khỏi những phán xét cũ.',
+     challenge:'Đừng để sự tự trách trở thành lý do khiến bạn mãi ở lại quá khứ. Nhìn lại là để học hỏi, không phải để trừng phạt chính mình mãi mãi.',
+     benefit:'Một sự giải thoát thật sự, khi bạn chấp nhận toàn bộ hành trình của mình, cả sáng lẫn tối. Sự thức tỉnh này sẽ mang lại cho bạn một khởi đầu rõ ràng và nhẹ nhõm hơn.'},
     {num:'XXI', name:'Thế Giới', en:'The World', icon:'globe',
-     meaning:'Sự hoàn thành trọn vẹn, khép lại một chu kỳ lớn với đầy đủ bài học đã tích lũy.',
-     message:'Bạn đã đi trọn một vòng, hãy công nhận hành trình này trước khi bước sang chương tiếp theo.',
-     challenge:'Đừng vội vàng lao vào điều mới mà quên ghi nhận những gì mình vừa hoàn thành.',
-     benefit:'Một cảm giác trọn vẹn hiếm có, và sự tự do để chọn hướng đi kế tiếp theo đúng ý mình.'}
+     meaning:'Sự hoàn thành trọn vẹn, khép lại một chu kỳ lớn với đầy đủ bài học đã tích lũy. Đây là lá bài cuối cùng của hành trình Ẩn Chính, biểu tượng cho sự viên mãn và trọn vẹn.',
+     message:'Bạn đã đi trọn một vòng, hãy công nhận hành trình này trước khi bước sang chương tiếp theo. Mọi nỗ lực, khó khăn và bài học đều đã góp phần tạo nên thành quả hôm nay.',
+     challenge:'Đừng vội vàng lao vào điều mới mà quên ghi nhận những gì mình vừa hoàn thành. Việc bỏ qua khoảnh khắc ăn mừng sẽ khiến bạn đánh mất cảm giác trọn vẹn xứng đáng có được.',
+     benefit:'Một cảm giác trọn vẹn hiếm có, và sự tự do để chọn hướng đi kế tiếp theo đúng ý mình. Chu kỳ mới đang chờ đợi, và bạn bước vào nó với đầy đủ sự khôn ngoan đã tích lũy.'}
   ];
+
+  // ---------- 56 lá Ẩn Phụ, sinh từ 4 bộ (chất) x 14 bậc ----------
+  const suits = [
+    { id:'cups', viName:'Chén', enSuit:'Cups', element:'Nước', domainLabel:'cảm xúc và các mối quan hệ', verbPhrase:'Trái tim bạn', benefitNoun:'sự ấm áp', icon:'drop' },
+    { id:'pentacles', viName:'Đồng Tiền', enSuit:'Pentacles', element:'Đất', domainLabel:'vật chất, tài chính và sức khỏe', verbPhrase:'Cuộc sống thực tế của bạn', benefitNoun:'sự ổn định', icon:'coins' },
+    { id:'swords', viName:'Kiếm', enSuit:'Swords', element:'Khí', domainLabel:'trí tuệ, giao tiếp và những quyết định', verbPhrase:'Tâm trí bạn', benefitNoun:'sự sáng suốt', icon:'wind' },
+    { id:'wands', viName:'Gậy', enSuit:'Wands', element:'Lửa', domainLabel:'đam mê, hành động và sáng tạo', verbPhrase:'Ngọn lửa nội tâm của bạn', benefitNoun:'nguồn cảm hứng', icon:'fire' }
+  ];
+
+  const ranks = [
+    { num:'A', viLabel:'Ách', enLabel:'Ace',
+      rankMeaning:'một khởi đầu thuần khiết, hạt giống năng lượng mới vừa được gieo xuống',
+      rankMessage:'một cơ hội mới đang mở ra, dù còn nhỏ bé nhưng rất chân thật',
+      rankChallenge:'Đừng để sự do dự ban đầu khiến bạn bỏ lỡ hạt giống này trước khi nó kịp nảy mầm',
+      rankBenefit:'Một khởi đầu tràn đầy tiềm năng, sẵn sàng để bạn vun đắp theo cách của riêng mình' },
+    { num:'2', viLabel:'Hai', enLabel:'Two',
+      rankMeaning:'sự cân bằng, một lựa chọn hoặc mối liên kết giữa hai phía',
+      rankMessage:'bạn đang đứng trước một sự lựa chọn hoặc một mối quan hệ hợp tác cần được cân nhắc kỹ',
+      rankChallenge:'Sự thiên lệch về một phía có thể phá vỡ thế cân bằng mong manh này',
+      rankBenefit:'Một sự hợp tác hài hòa, khi cả hai phía đều được lắng nghe công bằng' },
+    { num:'3', viLabel:'Ba', enLabel:'Three',
+      rankMeaning:'sự phát triển, khi những nỗ lực ban đầu bắt đầu ra hoa kết trái',
+      rankMessage:'những gì bạn đã gieo trồng đang bắt đầu hiện hình, hãy nhìn nhận sự tiến triển đó',
+      rankChallenge:'Đừng vội hài lòng quá sớm khi hành trình vẫn còn ở giai đoạn đầu',
+      rankBenefit:'Một sự mở rộng đáng mừng, mang thêm người đồng hành hoặc thành quả mới vào cuộc sống của bạn' },
+    { num:'4', viLabel:'Bốn', enLabel:'Four',
+      rankMeaning:'sự ổn định, một nền tảng vững chắc nhưng cũng có thể là dấu hiệu của sự trì trệ',
+      rankMessage:'bạn đang ở trong một giai đoạn an toàn, nhưng hãy tự hỏi liệu mình có đang đứng yên quá lâu',
+      rankChallenge:'Sự thoải mái hiện tại có thể khiến bạn ngại thay đổi, dù thay đổi là điều cần thiết',
+      rankBenefit:'Một nền tảng chắc chắn để bạn dựa vào, miễn là bạn không để nó biến thành vùng an toàn mãi mãi' },
+    { num:'5', viLabel:'Năm', enLabel:'Five',
+      rankMeaning:'sự xáo trộn, mất mát hoặc xung đột cần được đối diện thẳng thắn',
+      rankMessage:'một thử thách đang xuất hiện, nhưng nó cũng là cơ hội để bạn nhìn rõ điều gì thực sự quan trọng',
+      rankChallenge:'Cảm giác mất mát có thể khiến bạn chỉ nhìn thấy những gì đã mất, thay vì những gì vẫn còn',
+      rankBenefit:'Một bài học quý giá, giúp bạn trưởng thành hơn sau giai đoạn khó khăn này' },
+    { num:'6', viLabel:'Sáu', enLabel:'Six',
+      rankMeaning:'sự hài hòa, khi cân bằng và sự hỗ trợ lẫn nhau được khôi phục',
+      rankMessage:'mọi thứ đang dần trở lại nhịp điệu ổn định, hãy đón nhận sự giúp đỡ đang đến với bạn',
+      rankChallenge:'Đừng quên đáp lại những gì người khác đã trao cho bạn trong giai đoạn khó khăn trước đó',
+      rankBenefit:'Một sự cân bằng dễ chịu, mang lại cảm giác được thấu hiểu và hỗ trợ' },
+    { num:'7', viLabel:'Bảy', enLabel:'Seven',
+      rankMeaning:'sự suy ngẫm, đánh giá lại con đường trước khi bước tiếp',
+      rankMessage:'hãy dành thời gian nhìn lại những gì bạn đã làm, thay vì vội vàng lao về phía trước',
+      rankChallenge:'Suy nghĩ quá nhiều mà không hành động có thể khiến bạn bỏ lỡ thời điểm thích hợp',
+      rankBenefit:'Một góc nhìn rõ ràng hơn, giúp bạn đưa ra quyết định đúng đắn ở bước tiếp theo' },
+    { num:'8', viLabel:'Tám', enLabel:'Eight',
+      rankMeaning:'sự chuyển động nhanh, một bước tiến rõ rệt sau giai đoạn chờ đợi',
+      rankMessage:'mọi thứ đang tăng tốc, đây là lúc để hành động thay vì tiếp tục do dự',
+      rankChallenge:'Tốc độ nhanh có thể khiến bạn bỏ qua những chi tiết quan trọng trên đường đi',
+      rankBenefit:'Một sự tiến triển nhanh chóng, đưa bạn đến gần hơn với điều mình mong muốn' },
+    { num:'9', viLabel:'Chín', enLabel:'Nine',
+      rankMeaning:'sự gần hoàn thiện, khi những nỗ lực đã tích lũy gần chạm đến đích',
+      rankMessage:'bạn đã đi được một chặng đường dài, chỉ còn một bước nữa để hoàn tất',
+      rankChallenge:'Sự mệt mỏi ở chặng cuối có thể khiến bạn muốn bỏ cuộc trước khi về đích',
+      rankBenefit:'Một cảm giác gần đạt được, tiếp thêm động lực để bạn hoàn thành nốt hành trình' },
+    { num:'10', viLabel:'Mười', enLabel:'Ten',
+      rankMeaning:'sự hoàn thành trọn vẹn, khép lại một chu kỳ của bộ bài này',
+      rankMessage:'một chương đã khép lại, hãy ghi nhận toàn bộ hành trình trước khi bước sang chương mới',
+      rankChallenge:'Việc bám víu vào những gì đã hoàn thành có thể khiến bạn chậm bước sang giai đoạn tiếp theo',
+      rankBenefit:'Một sự trọn vẹn hiếm có, và không gian rộng mở để bắt đầu một chu kỳ mới' },
+    { num:'Pa', viLabel:'Thị Đồng', enLabel:'Page',
+      rankMeaning:'một thông điệp mới, sự tò mò và tinh thần học hỏi của người mới bắt đầu',
+      rankMessage:'một tin tức, cơ hội hoặc bài học mới đang tìm đến bạn, hãy giữ tâm thế cởi mở',
+      rankChallenge:'Sự thiếu kinh nghiệm có thể khiến bạn hành động vội vàng trước khi hiểu rõ vấn đề',
+      rankBenefit:'Một khởi đầu tươi mới, tràn đầy sự tò mò và ham muốn khám phá' },
+    { num:'Kn', viLabel:'Kỵ Sĩ', enLabel:'Knight',
+      rankMeaning:'hành động, sự theo đuổi mục tiêu với năng lượng di chuyển mạnh mẽ',
+      rankMessage:'đã đến lúc hành động, đừng chỉ dừng lại ở việc lên kế hoạch',
+      rankChallenge:'Sự vội vã hoặc bốc đồng có thể khiến bạn đi chệch hướng đã định',
+      rankBenefit:'Một nguồn động lực mạnh mẽ, đủ để đưa bạn tiến xa hơn trên con đường đã chọn' },
+    { num:'Qu', viLabel:'Nữ Hoàng', enLabel:'Queen',
+      rankMeaning:'sự làm chủ nội tâm, khả năng nuôi dưỡng và thấu hiểu sâu sắc',
+      rankMessage:'bạn được mời thể hiện sự trưởng thành nội tâm, chăm sóc bản thân và người khác bằng sự thấu cảm',
+      rankChallenge:'Việc cho đi quá nhiều có thể khiến bạn quên chăm sóc chính nhu cầu của mình',
+      rankBenefit:'Một sự vững vàng dịu dàng, giúp bạn dẫn dắt bằng sự thấu hiểu thay vì áp lực' },
+    { num:'Ki', viLabel:'Vua', enLabel:'King',
+      rankMeaning:'sự làm chủ bên ngoài, quyền uy và trách nhiệm của một người đã trưởng thành',
+      rankMessage:'bạn được mời đứng ra chịu trách nhiệm và dẫn dắt bằng kinh nghiệm đã tích lũy',
+      rankChallenge:'Quyền lực không đi kèm sự lắng nghe có thể khiến bạn trở nên xa cách với người khác',
+      rankBenefit:'Một vị thế vững chắc, được xây dựng từ kinh nghiệm và sự tự chủ thực sự' }
+  ];
+
+  function buildMinorArcana(){
+    const cards = [];
+    suits.forEach(suit=>{
+      ranks.forEach(rank=>{
+        cards.push({
+          num: rank.num,
+          name: `${rank.viLabel} ${suit.viName}`,
+          en: `${rank.enLabel} of ${suit.enSuit}`,
+          icon: suit.icon,
+          meaning: `Lá bài mang năng lượng của bộ ${suit.viName} (nguyên tố ${suit.element}), gắn với ${suit.domainLabel}. Ở vị trí ${rank.viLabel}, nó thể hiện ${rank.rankMeaning}.`,
+          message: `${suit.verbPhrase} đang cho bạn biết rằng ${rank.rankMessage}, đặc biệt trong chuyện liên quan đến ${suit.domainLabel}.`,
+          challenge: `${rank.rankChallenge}.`,
+          benefit: `${rank.rankBenefit}, mang lại ${suit.benefitNoun} cho hành trình ${suit.domainLabel} của bạn.`
+        });
+      });
+    });
+    return cards;
+  }
+
+  const deck = majorArcana.concat(buildMinorArcana());
 
   let drawPool = [];
   let drawnCards = [];
@@ -925,7 +1120,7 @@
       container.appendChild(div);
     });
 
-    const topicNames = {love:'Tình yêu & Mối quan hệ', study:'Học tập & Trí tuệ', career:'Sự nghiệp & Đam mê', finance:'Tài chính & Vật chất', future:'Tương lai & Bản thân', health:'Sức khỏe & Năng lượng'};
+    const topicNames = {love:'Tình yêu & Mối quan hệ', study:'Học tập & Trí tuệ', career:'Sự nghiệp & Đam mê', finance:'Tài chính & Vật chất', future:'Tương lai & Bản thân', health:'Sức khỏe & Năng lượng', friends:'Bạn bè & Xã giao', family:'Gia đình', dreams:'Giấc mơ & Tiềm thức', spirit:'Tâm linh & Nội tâm', decision:'Quyết định lớn', luck:'May mắn & Cơ hội'};
     const topicLabel = topicNames[selectedTopic] || 'hành trình của bạn';
     const qText = selectedQuestion ? `Với câu hỏi “${selectedQuestion}”, ba` : 'Ba';
     document.getElementById('synthesis').innerHTML =
